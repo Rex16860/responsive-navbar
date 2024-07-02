@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden;
+}
+
+/* navbar */
+
+nav {
+    display: flex;
+    background-color: darkorchid;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 1.2rem 0; */
+    color: rgb(255, 239, 254);
+    height: 4em;
+
+}
+
+nav .logo {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: rgb(253, 221, 251);
+    text-decoration: none;
+    font-size: .8em;
+}
+
+nav ul li a:hover {
+    color: rgb(253, 248, 253);
+}
+
+
+
+/* hamburger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 1.2rem;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: calc(3rem - 8px);
+    height: calc(2rem - 4px);
+    left: calc(-.4rem + 1px);
+    top: calc(-.1rem - 3px);
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+.menu-toggle span {
+    display: block;
+    width: calc(2rem - 4px) ;
+    height: .2rem;
+    background-color: rgb(253, 221, 251);
+    border-radius: 3px;
+    transition: all .3s;
+}
+
+
+/* Hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.menu-toggle span:last-child {
+    transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: #fff;
+}
+
+.menu-toggle input:checked ~  span:last-child {
+    transform: rotate(-45deg) translate(-1px, 0);
+    background-color: #fff;
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+/* Resposive Breakpoint */
+
+/* Tablet size */
+@media screen and (max-width: 768px) {
+    .nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        flex-direction: column;
+        right: 0;
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        background-color: orchid;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: -5;
+        transform: translateX(100%);
+        transition: all 1s;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+    }
+}
