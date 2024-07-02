@@ -124,7 +124,7 @@ nav ul li a:hover {
         justify-content: space-evenly;
         z-index: -5;
         transform: translateX(100%);
-        transition: all 1s;
+        transition: all .3s;
     }
     .menu-toggle {
         display: flex;
